@@ -36,7 +36,7 @@ class DireccionController extends Controller
      */
     public function store(Request $request)
     {
-        $datosDomicilio
+        $datosDomicilio;
     }
 
     /**

@@ -35,16 +35,25 @@ Route::get('/', function () {
 Route::get('/usuario/create', [EmpleadoController::class,'create']);
 */
 
-Route::resource('empleado', EmpleadoController::class);
-Route::resource('capacitacion', CapacitacionController::class);
-Route::resource('direccion', DireccionController::class);
+Route::resource('empleado', EmpleadoController::class)->middleware('auth');
+Route::resource('capacitacion', CapacitacionController::class)->middleware('auth');
+Route::resource('direccion', DireccionController::class)->middleware('auth');
 Auth::routes();
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
+Route::post('login',function(){
+    $credentials = request()->only('email','password');
 
+    $remember = request()->filled('remember');
 
+    if (Auth::attempt($credentials,$remember)){
+        request()->session()->regenerate();
 
+        return redirect('home');
+    }
+    return redirect('login');
+});
 
 Auth::routes();
 
