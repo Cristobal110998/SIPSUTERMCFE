@@ -42,6 +42,17 @@ Auth::routes();
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
+Route::group(['middleware'=>['auth']],function(){
+Route::get('/evento', [App\Http\Controllers\EventoController::class, 'index']);
+Route::post('/evento/mostrar', [App\Http\Controllers\EventoController::class, 'show']);
+Route::post('/evento/agregar', [App\Http\Controllers\EventoController::class, 'store']);
+Route::post('/evento/editar/{id}', [App\Http\Controllers\EventoController::class, 'edit']);
+Route::post('/evento/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
+Route::post('/evento/borrar/{id}', [App\Http\Controllers\EventoController::class, 'destroy']);
+});
+
+
+
 Route::post('login',function(){
     $credentials = request()->only('email','password');
 
@@ -58,3 +69,5 @@ Route::post('login',function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
