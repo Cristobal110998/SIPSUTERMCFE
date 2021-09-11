@@ -294,14 +294,20 @@ return [
                 [
                     'text' => 'Solicitudes',
                     'url' => '#',
-                ],
-                [
-                    'text' => 'Permisos',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'Vacaciones',
-                    'url' => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Ropa',
+                            'url' => '#',
+                        ],
+                        [
+                            'text' => 'Permisos',
+                            'url' => '#',
+                        ],
+                        [
+                            'text' => 'Vacaciones',
+                            'url' => 'evento',
+                        ],
+                    ],
                 ],
             ],   
         ],

@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
       locale:"es",
-      displayEventTime:false,
+      displayEventTime:TextTrackCueList,
 
       headerToolbar: {
-        left:'prev,next today',
+        left:'prev,next prevYear,nextYear today',
         center:'title',
-        right:'dayGridMonth'  
+        right:'dayGridMonth, dayGridWeek, timeGridDay',
       },
 
       //events: baseURL+"/evento/mostrar",
