@@ -36,6 +36,10 @@
  
                     
         <script src="{{ asset('js/agenda.js') }}" defer></script>
+        
+        <script src="{{ asset('js/agendaEmpleado.js') }}" defer></script>
+
+        <script src="{{ asset('js/agendaCursos.js') }}" defer></script>
         <main class="py-4">
             @yield('content')
         </main>
