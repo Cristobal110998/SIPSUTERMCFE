@@ -56,8 +56,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/evento/calendarioEmpleado/mostrar', [App\Http\Controllers\CalendarioEmpleadoController::class, 'show']);
     Route::post('/evento/calendarioEmpleado/agregar', [App\Http\Controllers\CalendarioEmpleadoController::class, 'store']);
     Route::post('/evento/calendarioEmpleado/editar/{id}', [App\Http\Controllers\CalendarioEmpleadoController::class, 'edit']);
-    Route::post('/evento/calendarioEmpleado/actualizar/{evento}', [App\Http\Controllers\EventoController::class, 'update']);
-    Route::post('/evento/calendarioEmpleado/borrar/{id}', [App\Http\Controllers\CalendarioEmpleadoControllerr::class, 'destroy']);
+    Route::post('/evento/calendarioEmpleado/actualizar/{evento}', [App\Http\Controllers\CalendarioEmpleadoController::class, 'update']);
+    Route::post('/evento/calendarioEmpleado/borrar/{id}', [App\Http\Controllers\CalendarioEmpleadoController::class, 'destroy']);
     });
  
     
@@ -67,7 +67,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::post('/evento/calendarioCursos/agregar', [App\Http\Controllers\CalendarioCursosController::class, 'store']);
         Route::post('/evento/calendarioCursos/editar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'edit']);
         Route::post('/evento/calendarioCursos/actualizar/{evento}', [App\Http\Controllers\CalendarioCursosController::class, 'update']);
-        Route::post('/evento/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosControllerr::class, 'destroy']);
+        Route::post('/evento/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'destroy']);
         });
 
 Route::post('login',function(){

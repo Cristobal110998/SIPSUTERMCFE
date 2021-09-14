@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class calendarioEmpleado extends Model
 {
     use HasFactory;
+    protected $table = 'calendario_empleados';
     static $rules=[
         'title'=>'required',
         'descripcion'=>'required',

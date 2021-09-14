@@ -65,10 +65,8 @@ class CalendarioCursosController extends Controller
     {
         //
         $evento = calendarioCursos::find($id);
-
         $evento->start = Carbon::createFromFormat('Y-m-d H:i:s',$evento->start)->format('Y-m-d');
         $evento->end = Carbon::createFromFormat('Y-m-d H:i:s',$evento->end)->format('Y-m-d');
-
 
         return response()->json($evento);
     }
@@ -83,7 +81,7 @@ class CalendarioCursosController extends Controller
     public function update(Request $request, calendarioCursos $calendarioCursos)
     {
         //
-        request()->validate(calendarioEmpleado::$rules);
+        request()->validate(calendarioCursos::$rules);
         $calendarioCursos->update($request->all());
         return response()->json($calendarioCursos);
     }

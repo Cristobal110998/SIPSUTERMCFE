@@ -29,13 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.start.value=info.dateStr;
         formulario.end.value=info.dateStr;
 
-          $("#evento").modal("show");
+          $("#eventoEmpleado").modal("show");
       },
 
       eventClick:function(info){
         var evento = info.event;
-        console.log(evento);
-        
         axios.post(baseURL+"/evento/calendarioEmpleado/editar/"+info.event.id).
         then(
           (respuesta) => {
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formulario.descripcion.value=respuesta.data.descripcion;
             formulario.start.value=respuesta.data.start;
             formulario.end.value=respuesta.data.end;
-            $("#evento").modal("show");
+            $("#eventoEmpleado").modal("show");
           }
           ).catch(
             error=>{
@@ -61,29 +59,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
     calendar.render();
-    document.getElementById("btnGuardar").addEventListener("click",function(){
+    document.getElementById("btnGuardarEmpleado").addEventListener("click",function(){
         enviarDatos("/evento/calendarioEmpleado/agregar");
         
 
     });
-    document.getElementById("btnEliminar").addEventListener("click",function(){
+    document.getElementById("btnEliminarEmpleado").addEventListener("click",function(){
       enviarDatos("/evento/calendarioEmpleado/borrar/"+formulario.id.value);
     });
-    document.getElementById("btnModificar").addEventListener("click",function(){
+    document.getElementById("btnModificarEmpleado").addEventListener("click",function(){
       enviarDatos("/evento/calendarioEmpleado/actualizar/"+formulario.id.value);
     });
 
     function enviarDatos(url){
-
       const datos = new FormData(formulario);
-
       const nuevaURL = baseURL+url;
       console.log(nuevaURL);
+''
       axios.post(nuevaURL,datos).
       then(
         (respuesta) => {
           calendar.refetchEvents();
-          $("#evento").modal("hide");
+          $("#eventoEmpleado").modal("hide");
         }
         ).catch(
           error=>{
