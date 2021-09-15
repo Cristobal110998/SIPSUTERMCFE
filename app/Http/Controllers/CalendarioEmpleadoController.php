@@ -66,7 +66,7 @@ class CalendarioEmpleadoController extends Controller
     public function edit($id)
     {
         //
-        $calendarioEmpleado = calendarioEmpleado::find($id)->;
+        $calendarioEmpleado = calendarioEmpleado::find($id);
         $calendarioEmpleado->start = Carbon::createFromFormat('Y-m-d H:i:s',$calendarioEmpleado->start)->format('Y-m-d');
         $calendarioEmpleado->end = Carbon::createFromFormat('Y-m-d H:i:s',$calendarioEmpleado->end)->format('Y-m-d');
         return response()->json($calendarioEmpleado);
