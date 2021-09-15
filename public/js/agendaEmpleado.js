@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       eventClick:function(info){
         var evento = info.event;
+        console.log(evento);
         axios.post(baseURL+"/evento/calendarioEmpleado/editar/"+info.event.id).
         then(
           (respuesta) => {
@@ -68,14 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
       enviarDatos("/evento/calendarioEmpleado/borrar/"+formulario.id.value);
     });
     document.getElementById("btnModificarEmpleado").addEventListener("click",function(){
-      enviarDatos("/evento/calendarioEmpleado/actualizar/"+formulario.id.value);
+      enviarDatos("/evento/calendarioEmpleado/borrar/"+formulario.id.value);
+      enviarDatos("/evento/calendarioEmpleado/agregar");
+
     });
 
     function enviarDatos(url){
       const datos = new FormData(formulario);
       const nuevaURL = baseURL+url;
-      console.log(nuevaURL);
-''
       axios.post(nuevaURL,datos).
       then(
         (respuesta) => {
