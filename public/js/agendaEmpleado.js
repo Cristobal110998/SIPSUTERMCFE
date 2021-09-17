@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    let formulario = document.querySelector("#formularioEmpleados");
+    let formulario = document.querySelector("#formularioEmpleado");
 
-    var calendarEl = document.getElementById('agendaEmpleado');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    var calendar = document.getElementById('agenda');
+    var calendar2 = new FullCalendar.Calendar(calendar, {
       initialView: 'dayGridMonth',
       locale:"es",
       displayEventTime:TextTrackCueList,
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //events: baseURL+"/evento/mostrar",
 
       eventSources:{
-        url: baseURL+"/evento/calendarioEmpleado/mostrar",
+        url: baseURL+"/calendarioEmpleado/mostrar",
         method:"POST",
         extraParams:{
           _token: formulario._token.value,
@@ -29,12 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.start.value=info.dateStr;
         formulario.end.value=info.dateStr;
 
-          $("#eventoEmpleado").modal("show");
+          $("#evento").modal("show");
       },
 
       eventClick:function(info){
         var evento = info.event;
-        axios.post(baseURL+"/evento/calendarioEmpleado/editar/"+info.event.id).
+        console.log(evento);
+        axios.post(baseURL+"/calendarioEmpleado/editar/"+info.event.id).
         then(
           (respuesta) => {
             formulario.id.value=respuesta.data.id;
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             formulario.descripcion.value=respuesta.data.descripcion;
             formulario.start.value=respuesta.data.start;
             formulario.end.value=respuesta.data.end;
-            $("#eventoEmpleado").modal("show");
+            $("#evento").modal("show");
           }
           ).catch(
             error=>{
@@ -58,17 +59,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
     });
-    calendar.render();
-    document.getElementById("btnGuardarEmpleado").addEventListener("click",function(){
-        enviarDatos("/evento/calendarioEmpleado/agregar");
+    calendar2.render();
+    document.getElementById("btnGuardar").addEventListener("click",function(){
+        enviarDatos("/calendarioEmpleado/agregar");
         
 
     });
-    document.getElementById("btnEliminarEmpleado").addEventListener("click",function(){
-      enviarDatos("/evento/calendarioEmpleado/borrar/"+formulario.id.value);
+    document.getElementById("btnEliminar").addEventListener("click",function(){
+      enviarDatos("/calendarioEmpleado/borrar/"+formulario.id.value);
     });
-    document.getElementById("btnModificarEmpleado").addEventListener("click",function(){
-      enviarDatos("/evento/calendarioEmpleado/actualizar/"+formulario.id.value);
+    document.getElementById("btnModificar").addEventListener("click",function(){
+      enviarDatos("/calendarioEmpleado/actualizar/"+formulario.id.value);
     });
 
     function enviarDatos(url){
@@ -79,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
       axios.post(nuevaURL,datos).
       then(
         (respuesta) => {
-          calendar.refetchEvents();
-          $("#eventoEmpleado").modal("hide");
+          calendar2.refetchEvents();
+          $("#evento").modal("hide");
         }
         ).catch(
           error=>{
@@ -92,7 +93,5 @@ document.addEventListener('DOMContentLoaded', function() {
         )
 
     }
-
-
 
   });

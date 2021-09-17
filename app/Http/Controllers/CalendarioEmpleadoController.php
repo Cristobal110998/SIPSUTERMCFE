@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\calendarioEmpleado;
+use App\Models\CalendarioEmpleado;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+
 
 class CalendarioEmpleadoController extends Controller
 {
@@ -17,7 +18,7 @@ class CalendarioEmpleadoController extends Controller
     public function index()
     {
         //
-        return view('evento.calendarioEmpleado');
+        return view('calendarioEmpleado.index');
     }
 
     /**
@@ -69,6 +70,7 @@ class CalendarioEmpleadoController extends Controller
         $evento = calendarioEmpleado::find($id);
         $evento->start = Carbon::createFromFormat('Y-m-d H:i:s',$evento->start)->format('Y-m-d');
         $evento->end = Carbon::createFromFormat('Y-m-d H:i:s',$evento->end)->format('Y-m-d');
+        
         return response()->json($evento);
     }
 
@@ -76,14 +78,15 @@ class CalendarioEmpleadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\calendarioEmpleado  $calendarioEmpleado
+     * @param  \App\Models\CalendarioEmpleado  $calendarioEmpleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, calendarioEmpleado $calendarioEmpleado)
+    public function update(Request $request, CalendarioEmpleado $calendarioEmpleado)
     {
         //
-        request()->validate(calendarioEmpleado::$rules);
+        request()->validate(CalendarioEmpleado::$rules);
         $calendarioEmpleado->update($request->all());
+
         return response()->json($calendarioEmpleado);
     }
 

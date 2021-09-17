@@ -10,13 +10,13 @@
 
 
 <div class="container">
-    <div id="agendaEmpleado">
+    <div id="agenda">
     </div>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="eventoEmpleado" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -28,7 +28,7 @@
             <div class="modal-body">
                 
 
-            <form action="" id="formularioEmpleados">
+            <form action="" id="formularioEmpleado">
 
             {!! csrf_field() !!}
 
@@ -67,15 +67,17 @@
             </div>
             <div class="modal-footer">
 
-            <button type="button" class="btn btn-success" id="btnGuardarEmpleado">Guardar</button>
-            <button type="button" class="btn btn-warning" id="btnModificarEmpleado">Modificar</button>
-            <button type="button" class="btn btn-danger" id="btnEliminarEmpleado">Eliminar</button>
+            <button type="button" class="btn btn-success" id="btnGuardar">Guardar</button>
+            <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
+            <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 
             </div>
         </div>
     </div>
 </div>
+
+<script src="./js/agendaEmpleado.js"></script>
 
 
 
