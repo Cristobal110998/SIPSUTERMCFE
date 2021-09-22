@@ -62,12 +62,12 @@ Route::group(['middleware'=>['auth']],function(){
  
     
     Route::group(['middleware'=>['auth']],function(){
-        Route::get('/evento/calendarioCursos', [App\Http\Controllers\CalendarioCursosController::class, 'index']);
-        Route::post('/evento/calendarioCursos/mostrar', [App\Http\Controllers\CalendarioCursosController::class, 'show']);
-        Route::post('/evento/calendarioCursos/agregar', [App\Http\Controllers\CalendarioCursosController::class, 'store']);
-        Route::post('/evento/calendarioCursos/editar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'edit']);
-        Route::post('/evento/calendarioCursos/actualizar/{evento}', [App\Http\Controllers\CalendarioCursosController::class, 'update']);
-        Route::post('/evento/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'destroy']);
+        Route::get('/calendarioCursos', [App\Http\Controllers\CalendarioCursosController::class, 'index']);
+        Route::post('/calendarioCursos/mostrar', [App\Http\Controllers\CalendarioCursosController::class, 'show']);
+        Route::post('/calendarioCursos/agregar', [App\Http\Controllers\CalendarioCursosController::class, 'store']);
+        Route::post('/calendarioCursos/editar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'edit']);
+        Route::post('/calendarioCursos/actualizar/{calendarioCursos}', [App\Http\Controllers\CalendarioCursosController::class, 'update']);
+        Route::post('/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'destroy']);
         });
 
 Route::post('login',function(){

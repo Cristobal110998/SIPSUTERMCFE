@@ -17,7 +17,7 @@ class CalendarioCursosController extends Controller
     public function index()
     {
         //
-        return view('evento.calendarioCursos');
+        return view('calendarioCursos.index');
     }
 
     /**

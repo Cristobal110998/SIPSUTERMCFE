@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    let formulario = document.querySelector("#formularioEventos");
+    let formulario3 = document.querySelector("#formularioCursos");
 
-    var calendarEl = document.getElementById('agendaCursos');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    var calendarCur = document.getElementById('agendaCursos');
+    var calendar3 = new FullCalendar.Calendar(calendarCur, {
       initialView: 'dayGridMonth',
       locale:"es",
       displayEventTime:TextTrackCueList,
@@ -17,34 +17,34 @@ document.addEventListener('DOMContentLoaded', function() {
       //events: baseURL+"/evento/mostrar",
 
       eventSources:{
-        url: baseURL+"/evento/calendarioCursos/mostrar",
+        url: baseURL+"/calendarioCursos/mostrar",
         method:"POST",
         extraParams:{
-          _token: formulario._token.value,
+          _token: formulario3._token.value,
         }
       },
 
       dateClick:function(info){
-        formulario.reset();
-        formulario.start.value=info.dateStr;
-        formulario.end.value=info.dateStr;
+        formulario3.reset();
+        formulario3.start.value=info.dateStr;
+        formulario3.end.value=info.dateStr;
 
-          $("#evento").modal("show");
+          $("#eventoCurso").modal("show");
       },
 
       eventClick:function(info){
         var evento = info.event;
         console.log(evento);
         
-        axios.post(baseURL+"/evento/calendarioCursos/editar/"+info.event.id).
+        axios.post(baseURL+"/calendarioCursos/editar/"+info.event.id).
         then(
           (respuesta) => {
-            formulario.id.value=respuesta.data.id;
-            formulario.title.value=respuesta.data.title;
-            formulario.descripcion.value=respuesta.data.descripcion;
-            formulario.start.value=respuesta.data.start;
-            formulario.end.value=respuesta.data.end;
-            $("#evento").modal("show");
+            formulario3.id.value=respuesta.data.id;
+            formulario3.title.value=respuesta.data.title;
+            formulario3.descripcion.value=respuesta.data.descripcion;
+            formulario3.start.value=respuesta.data.start;
+            formulario3.end.value=respuesta.data.end;
+            $("#eventoCurso").modal("show");
           }
           ).catch(
             error=>{
@@ -60,30 +60,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
     });
-    calendar.render();
+    calendar3.render();
     document.getElementById("btnGuardar").addEventListener("click",function(){
-        enviarDatos("/evento/calendarioCursos/agregar");
+        enviarDatos("/calendarioCursos/agregar");
         
 
     });
     document.getElementById("btnEliminar").addEventListener("click",function(){
-      enviarDatos("/evento/calendarioCursos/borrar/"+formulario.id.value);
+      enviarDatos("/calendarioCursos/borrar/"+formulario3.id.value);
     });
     document.getElementById("btnModificar").addEventListener("click",function(){
-      enviarDatos("/evento/calendarioCursos/actualizar/"+formulario.id.value);
+      enviarDatos("/calendarioCursos/actualizar/"+formulario3.id.value);
     });
 
     function enviarDatos(url){
 
-      const datos = new FormData(formulario);
+      const datos = new FormData(formulario3);
 
       const nuevaURL = baseURL+url;
 
       axios.post(nuevaURL,datos).
       then(
         (respuesta) => {
-          calendar.refetchEvents();
-          $("#evento").modal("hide");
+          calendar3.refetchEvents();
+          $("#eventoCurso").modal("hide");
         }
         ).catch(
           error=>{

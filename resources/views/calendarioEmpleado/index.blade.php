@@ -10,13 +10,13 @@
 
 
 <div class="container">
-    <div id="agenda">
+    <div id="agendaEmpleado">
     </div>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="eventoEmpleado" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,8 +76,6 @@
         </div>
     </div>
 </div>
-
-<script src="./js/agendaEmpleado.js"></script>
 
 
 
