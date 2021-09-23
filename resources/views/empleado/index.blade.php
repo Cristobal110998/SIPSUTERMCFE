@@ -3,8 +3,10 @@
 @section('title', 'SIPSUTERMCFE')
 @section('content_header')
     <h1>Empleados</h1>
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @stop
 
+<script src="{{ URL::asset('css/estilos.css') }}"></script>
 
 @section('content')
 <div class="container">

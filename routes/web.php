@@ -78,13 +78,12 @@ Route::post('login',function(){
     if (Auth::attempt($credentials,$remember)){
         request()->session()->regenerate();
 
-        return redirect('home');
+        return redirect('empleado.index');
     }
     return redirect('login');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

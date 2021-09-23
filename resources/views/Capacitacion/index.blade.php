@@ -3,6 +3,7 @@
 @section('title', 'SIPSUTERMCFE')
 @section('content_header')
     <h1>Capacitacion</h1>
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @stop
 
 

@@ -244,13 +244,11 @@ return [
             'url'  => 'empleado',
             'icon' => 'fas fa-fw fa-home',
         ],
-        [
-            'text'    => 'Menú del sistema',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+   
                 [
                     'text' => 'Usuario',
                     'url'  => '#',
+                    'icon' => 'fas fa-ligth fa-user',
                     'submenu' => [
                         [
                             'text' => 'Alta de usuario',
@@ -282,6 +280,7 @@ return [
             [
                 'text' => 'Empleados',
                 'url'  => 'empleado',
+                'icon' => 'fas fa-fw fa-users',
                 'submenu' => [
                 [
                     'text' => 'Alta',
@@ -296,16 +295,12 @@ return [
                     'url' => '#',
                     'submenu' => [
                         [
-                            'text' => 'Ropa',
-                            'url' => '#',
+                            'text' => 'Vacaciones',
+                            'url' => 'evento',
                         ],
                         [
                             'text' => 'Permisos',
                             'url' => '#',
-                        ],
-                        [
-                            'text' => 'Vacaciones',
-                            'url' => 'evento',
                         ],
                     ],
                 ],
@@ -314,6 +309,7 @@ return [
         [
             'text' => 'Registro de asistencias',
             'url'  => '#',
+            'icon' => 'fas fa-fw fa-check-circle',
             'submenu' => [
             [
                 'text' => 'Laboral',
@@ -352,6 +348,7 @@ return [
     [
         'text' => 'Capacitacion',
         'url'  => 'capacitacion',
+        'icon' => 'fas fa-fw fa-book',
         'submenu' => [
         [
             'text' => 'Cursos',
@@ -370,57 +367,58 @@ return [
 [
     'text' => 'Areas de trabajo',
     'url'  => '#', 
+    'icon' => 'fas fa-fw fa-wrench',
 ],
 [
     'text' => 'Calendario de eventos',
     'url'  => '#',
-    'submenu' => [
-    [
-        'text' => 'Asambleas',
-        'url' => '#',
-    ],
-    [
-        'text' => 'Eventos',
-        'url' => '#',
-    ],
-    [
-        'text' => 'Conferencias',
-        'url' => '#',
-    ],
-    [
-        'text' => 'Festivos',
-        'url' => '#',
-    ],
-],   
+    'icon' => 'fas fa-fw fa-calendar',
+//     'submenu' => [
+//     [
+//         'text' => 'Asambleas',
+//         'url' => '#',
+//     ],
+//     [
+//         'text' => 'Eventos',
+//         'url' => '#',
+//     ],
+//     [
+//         'text' => 'Conferencias',
+//         'url' => '#',
+//     ],
+//     [
+//         'text' => 'Festivos',
+//         'url' => '#',
+//     ],
+// ],   
 ],
-[
-    'text' => 'Servicio Social',
-    'url'  => '#',
-    'submenu' => [
-    [
-        'text' => 'Registro de horas',
-        'url' => '#',
-    ],
-    [
-        'text' => 'Constancias',
-        'url' => '#',
-    ],
-],   
-],
-[
-    'text' => 'Encuestas',
-    'url'  => '#', 
-],
-[
-    'text' => 'Reportes',
-    'url'  => '#', 
-],
-[
-    'text' => 'Solicitud de documentos',
-    'url'  => '#', 
-],
-],
-],
+// [
+//     'text' => 'Servicio Social',
+//     'url'  => '#',
+//     'submenu' => [
+//     [
+//         'text' => 'Registro de horas',
+//         'url' => '#',
+//     ],
+//     [
+//         'text' => 'Constancias',
+//         'url' => '#',
+//     ],
+// ],   
+// ],
+// [
+//     'text' => 'Encuestas',
+//     'url'  => '#', 
+// ],
+// [
+//     'text' => 'Reportes',
+//     'url'  => '#', 
+// ],
+// [
+//     'text' => 'Solicitud de documentos',
+//     'url'  => '#', 
+// ],
+
 
 
     ],

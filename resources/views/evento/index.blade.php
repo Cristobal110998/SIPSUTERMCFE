@@ -8,6 +8,8 @@
 
 @extends('adminlte::page')
 
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+
 @section('title', 'SIPSUTERMCFE')
 
 

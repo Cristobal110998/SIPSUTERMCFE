@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       },
 
+      
       dateClick:function(info){
         formulario.reset();
         formulario.start.value=info.dateStr;
@@ -36,31 +37,46 @@ document.addEventListener('DOMContentLoaded', function() {
       eventClick:function(info){
         var evento = info.event;
         console.log(evento);
-        
-        axios.post(baseURL+"/evento/editar/"+info.event.id).
-        then(
-          (respuesta) => {
-            formulario.id.value=respuesta.data.id;
-            formulario.title.value=respuesta.data.title;
-            formulario.descripcion.value=respuesta.data.descripcion;
-            formulario.start.value=respuesta.data.start;
-            formulario.end.value=respuesta.data.end;
-            $("#evento").modal("show");
-          }
-          ).catch(
-            error=>{
-              if(error.response){
-                console.log(error.response.data);
-              }
-            }
+        console.log(formulario.start.value);
+        console.log(evento.start);
 
-          )
+        //FALTO ESTO PARA TENER MISMO FORMATO DE FECHAS
+        var auxFormato = evento.start.toDateString("YY-m-d");
+        console.log(auxFormato);
+
+        if(formulario.start.value != evento.start){
+          axios.post(baseURL+"/evento/editar/"+info.event.id).
+          then(
+            (respuesta) => {
+              formulario.id.value=respuesta.data.id;
+              formulario.title.value=respuesta.data.title;
+              formulario.descripcion.value=respuesta.data.descripcion;
+              formulario.start.value=respuesta.data.start;
+              formulario.end.value=respuesta.data.end;
+              $("#evento").modal("show");
+            }
+            ).catch(
+              error=>{
+                if(error.response){
+                  console.log(error.response.data);
+                }
+              }
+  
+            )
+        }else{
+            alert("Son iguales");
+        }
+
+      
 
 
 
       }
 
     });
+
+   
+
     calendar.render();
     document.getElementById("btnGuardar").addEventListener("click",function(){
         enviarDatos("/evento/agregar");
