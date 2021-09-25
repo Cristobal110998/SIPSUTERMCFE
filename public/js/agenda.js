@@ -73,9 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
             axios
                 .post(baseURL + "/evento/editar/" + info.event.id)
                 .then((respuesta) => {
-                    
-            alert("eventClick");
-                    console.log(formulario.start.value);
                     formulario.id.value = respuesta.data.id;
                     formulario.title.value = respuesta.data.title;
                     formulario.descripcion.value = respuesta.data.descripcion;
@@ -97,10 +94,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
     calendar.render();
+
+    
     document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
-            enviarDatos("/evento/agregar");
+            var yaCreado = document.getElementById('title').value;
+            if(yaCreado.length == 0){
+                enviarDatos("/evento/agregar");
+            }else{
+                $("#evento").modal("hide");
+            }
         });
     document
         .getElementById("btnEliminar")
