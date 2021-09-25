@@ -1,18 +1,20 @@
 @extends('layouts.app')
 @section('content')
 @extends('adminlte::page')
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @section('title', 'SIPSUTERMCFE')
 
 
 
+
 <div class="container">
-    <div id="agendaCursos">
+    <div id="agendaPermiso">
     </div>
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="eventoCurso" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="eventoPermiso" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +26,7 @@
             <div class="modal-body">
                 
 
-            <form action="" id="formularioCursos">
+            <form action="" id="formularioPermiso">
 
             {!! csrf_field() !!}
 
