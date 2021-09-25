@@ -1,6 +1,6 @@
 
-
 @extends('layouts.app')
+
 <script>
   alert("POR FAVOR, CAPTURA EL PERIODO DE VACACIONES QUE QUIERES REGISTRAR!");
 </script>
@@ -11,6 +11,12 @@
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 
 @section('title', 'SIPSUTERMCFE')
+
+@section('imports')
+import { Calendar } from 'fullcalendar/core';
+import dayGridPlugin from 'fullcalendar/daygrid';
+@endsection
+
 
 
 

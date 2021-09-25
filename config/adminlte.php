@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>SIPSUTERMCFE</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => '/vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -241,11 +241,11 @@ return [
         ],
         [
             'text' => 'Inicio',
-            'url'  => 'empleado',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-home',
         ],
    
-                [
+                /*[
                     'text' => 'Usuario',
                     'url'  => '#',
                     'icon' => 'fas fa-ligth fa-user',
@@ -268,15 +268,11 @@ return [
                             'icon' => 'fas fa-fw fa-lock',
                         ],
                     [
-                        'text' => 'Notificaciones',
-                        'url' => '#',
-                    ],
-                    [
                         'text' => 'Buzón de sugerencias',
                         'url' => '#',
                     ],
                 ],   
-            ],
+            ],*/
             [
                 'text' => 'Empleados',
                 'url'  => 'empleado',
@@ -290,11 +286,53 @@ return [
                     'text' => 'Baja',
                     'url' => 'empleado',
                 ],
-                [
-                    'text' => 'Solicitudes',
-                    'url' => '#',
-                    'submenu' => [
-                        [
+            ],   
+        ],
+        // [
+        //     'text' => 'Registro de asistencias',
+        //     'url'  => '#',
+        //     'icon' => 'fas fa-fw fa-check-circle',
+        //     'submenu' => [
+        //     [
+        //         'text' => 'Laboral',
+        //         'url' => '#',
+        //         'submenu' => [
+        //             [
+        //                 'text' => 'Presencial',
+        //                 'url' => '#',
+        //             ],
+        //             [
+        //                 'text' => 'Home Office',
+        //                 'url' => '#',
+        //             ],
+        //             [
+        //                 'text' => 'Faltas',
+        //                 'url' => '#',
+        //             ],
+        //         ],
+        //     ],
+        //     [
+        //         'text' => 'Eventos sindicales',
+        //         'url' => '#',
+        //         'submenu' => [
+        //             [
+        //                 'text' => 'Asistencias',
+        //                 'url' => '#',
+        //             ],
+        //             [
+        //                 'text' => 'Faltas',
+        //                 'url' => '#',
+        //             ],
+        //         ],
+        //     ],
+        // ],   
+        // ] ,
+        [
+            'text' => 'Servicios',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-check-circle',
+            'submenu' => [
+                  [
                             'text' => 'Vacaciones',
                             'url' => 'evento',
                         ],
@@ -302,50 +340,13 @@ return [
                             'text' => 'Permisos',
                             'url' => '#',
                         ],
-                    ],
-                ],
-            ],   
-        ],
-        [
-            'text' => 'Registro de asistencias',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-check-circle',
-            'submenu' => [
             [
-                'text' => 'Laboral',
+                'text' => 'Buzón de sugerencias',
                 'url' => '#',
-                'submenu' => [
-                    [
-                        'text' => 'Presencial',
-                        'url' => '#',
-                    ],
-                    [
-                        'text' => 'Home Office',
-                        'url' => '#',
-                    ],
-                    [
-                        'text' => 'Faltas',
-                        'url' => '#',
-                    ],
-                ],
-            ],
-            [
-                'text' => 'Eventos sindicales',
-                'url' => '#',
-                'submenu' => [
-                    [
-                        'text' => 'Asistencias',
-                        'url' => '#',
-                    ],
-                    [
-                        'text' => 'Faltas',
-                        'url' => '#',
-                    ],
-                ],
             ],
         ],   
     ],
-    [
+   /* [
         'text' => 'Capacitacion',
         'url'  => 'capacitacion',
         'icon' => 'fas fa-fw fa-book',
@@ -363,16 +364,16 @@ return [
             'url' => '#',
         ],
     ],   
-],
+],*/
 [
-    'text' => 'Areas de trabajo',
+    'text' => 'Centros de trabajo',
     'url'  => '#', 
     'icon' => 'fas fa-fw fa-wrench',
 ],
-[
-    'text' => 'Calendario de eventos',
-    'url'  => '#',
-    'icon' => 'fas fa-fw fa-calendar',
+//[
+//    'text' => 'Calendario de eventos',
+//    'url'  => '#',
+//    'icon' => 'fas fa-fw fa-calendar',
 //     'submenu' => [
 //     [
 //         'text' => 'Asambleas',
@@ -391,7 +392,7 @@ return [
 //         'url' => '#',
 //     ],
 // ],   
-],
+//],
 // [
 //     'text' => 'Servicio Social',
 //     'url'  => '#',

@@ -1,4 +1,8 @@
+
 document.addEventListener("DOMContentLoaded", function () {
+    var bandera = false;
+
+
     let formulario = document.querySelector("#formularioEventos");
 
     var calendarEl = document.getElementById("agenda");
@@ -6,14 +10,29 @@ document.addEventListener("DOMContentLoaded", function () {
         initialView: "dayGridMonth",
         locale: "es",
         displayEventTime: TextTrackCueList,
+        selectable: true,
+        selectOverlap: false,
+        eventOverlap: false,
+     
 
         headerToolbar: {
             left: "prev,next prevYear,nextYear today",
             center: "title",
             right: "dayGridMonth, dayGridWeek, timeGridDay",
         },
-        
+
         //events: baseURL+"/evento/mostrar",
+        selectOverlap: function(event) {
+            console.log(event);
+            if(event.length != 0){
+                bandera = true;
+                $("#evento").modal("hide");
+                alert("No puedes registrar en una fecha ya ocupada");
+            }else{
+                //
+            }
+        },
+        
 
         eventSources: {
             url: baseURL + "/evento/mostrar",
@@ -23,26 +42,51 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
 
+   
         dateClick: function (info) {
+            var fecha = info.dateStr;
+
+        
+            //calendar.gotoDate(fecha);
+
+
+
             formulario.reset();
             formulario.start.value = info.dateStr;
             formulario.end.value = info.dateStr;
 
-            $("#evento").modal("show");
+            
+            if(bandera == true){
+                $("#evento").modal("hide");
+                bandera = false;
+            }else{
+                $("#evento").modal("show");
+            }
+         
         },
 
         eventClick: function (info) {
             var evento = info.event;
-  
+            
+           // console.log(evento.start); //Wed Sep 01 2021 00:00:00 GMT-0500 (hora de verano central)
+
             axios
                 .post(baseURL + "/evento/editar/" + info.event.id)
                 .then((respuesta) => {
+                    
+            alert("eventClick");
+                    console.log(formulario.start.value);
                     formulario.id.value = respuesta.data.id;
                     formulario.title.value = respuesta.data.title;
                     formulario.descripcion.value = respuesta.data.descripcion;
                     formulario.start.value = respuesta.data.start;
                     formulario.end.value = respuesta.data.end;
-                    $("#evento").modal("show");
+                    if(bandera == true){
+                        $("#evento").modal("hide");
+                        bandera = false;
+                    }else{
+                        $("#evento").modal("show");
+                    }
                 })
                 .catch((error) => {
                     if (error.response) {
@@ -52,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
     });
-
     calendar.render();
     document
         .getElementById("btnGuardar")
@@ -87,4 +130,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
     }
+
 });
