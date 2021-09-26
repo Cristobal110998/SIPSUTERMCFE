@@ -81,6 +81,10 @@ Route::group(['middleware'=>['auth']],function(){
         Route::post('/calendarioPermiso/borrar/{id}', [App\Http\Controllers\CalendarioPermisoController::class, 'destroy']);
         }); 
 
+        Route::group(['middleware'=>['auth']],function(){
+        Route::get('/departamentoJefe',[App\Http\Controllers\DepartamentoJefeController::class,'index']);
+        });
+
 Route::post('login',function(){
     $credentials = request()->only('email','password');
 
