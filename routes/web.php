@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DireccionController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +69,20 @@ Route::group(['middleware'=>['auth']],function(){
         Route::post('/calendarioCursos/editar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'edit']);
         Route::post('/calendarioCursos/actualizar/{calendarioCursos}', [App\Http\Controllers\CalendarioCursosController::class, 'update']);
         Route::post('/calendarioCursos/borrar/{id}', [App\Http\Controllers\CalendarioCursosController::class, 'destroy']);
+        });
+
+        
+    Route::group(['middleware'=>['auth']],function(){
+        Route::get('/calendarioPermiso', [App\Http\Controllers\CalendarioPermisoController::class, 'index']);
+        Route::post('/calendarioPermiso/mostrar', [App\Http\Controllers\CalendarioPermisoController::class, 'show']);
+        Route::post('/calendarioPermiso/agregar', [App\Http\Controllers\CalendarioPermisoController::class, 'store']);
+        Route::post('/calendarioPermiso/editar/{id}', [App\Http\Controllers\CalendarioPermisoController::class, 'edit']);
+        Route::post('/calendarioPermiso/actualizar/{calendarioPermisos}', [App\Http\Controllers\CalendarioPermisoController::class, 'update']);
+        Route::post('/calendarioPermiso/borrar/{id}', [App\Http\Controllers\CalendarioPermisoController::class, 'destroy']);
+        }); 
+
+        Route::group(['middleware'=>['auth']],function(){
+        Route::get('/departamentoJefe',[App\Http\Controllers\DepartamentoJefeController::class,'index']);
         });
 
 Route::post('login',function(){

@@ -12,9 +12,8 @@ class calendarioPermiso extends Model
         'title'=>'required',
         'descripcion'=>'required',
         'start'=>'required',
-         'end'=>'required',
+        'end'=>'required',
     ];
 
     protected $fillable=['title','descripcion','start','end'];
-
 }

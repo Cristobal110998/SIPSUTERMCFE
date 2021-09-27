@@ -1,19 +1,12 @@
 @extends('layouts.app')
-
 @section('content')
-
 @extends('adminlte::page')
-
 @section('title', 'SIPSUTERMCFE')
 
-
-
-
-<div class="container">
-    <div id="agendaPermisos">
+<div class="container"  style="width:100vh;">
+    <div id="agendaPermisos"  style="width:100vh;">
     </div>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
