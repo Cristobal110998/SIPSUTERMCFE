@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     var bandera = false;
-
+    document.getElementById("nombreCentro").innerHTML = "Centro de trabajo";
 
     let formulario = document.querySelector("#formularioEventos");
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headerToolbar: {
             left: "prev,next prevYear,nextYear today",
             center: "title",
-            right: "dayGridMonth, dayGridWeek, timeGridDay",
+            right: "listYear, dayGridMonth, dayGridWeek, timeGridDay",
         },
 
         //events: baseURL+"/evento/mostrar",

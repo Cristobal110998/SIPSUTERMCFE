@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>SIPSUTERMCFE</b>',
-    'logo_img' => '/vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => '/vendor/adminlte/dist/img/cfe_logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -244,6 +244,17 @@ return [
             'url'  => '#',
             'icon' => 'fas fa-fw fa-home',
         ],
+        [
+            'text' => 'Administración',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-unlock',
+            'submenu' => [
+                [
+                    'text' => 'Capturar días',
+                    'url' => '#',
+                ],
+            ]
+        ],
    
                 /*[
                     'text' => 'Usuario',
@@ -334,7 +345,21 @@ return [
             'submenu' => [
                   [
                             'text' => 'Vacaciones',
-                            'url' => 'evento',
+                            'url' => '#',
+                            'submenu' => [
+                                [
+                                    'text' => 'Solicitar vacaciones',
+                                    'url' => '#',
+                                ],
+                                [   
+                                    'text' => 'Consultar vacaciones',
+                                    'url' => 'evento',
+                                ],
+                                [
+                                    'text' => 'Imprimir formato',
+                                    'url' => '#',
+                                ],
+                            ],
                         ],
                         [
                             'text' => 'Permisos',
