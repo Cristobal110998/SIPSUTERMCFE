@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartamentoJevesTable extends Migration
+class CreateZonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamento_jefes', function (Blueprint $table) {
-            $table->increments('id_jefe');
-            $table->integer('id');
+        Schema::create('zonas', function (Blueprint $table) {
+            $table->increments('id_zona');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento_jefes');
+        Schema::dropIfExists('zonas');
     }
 }

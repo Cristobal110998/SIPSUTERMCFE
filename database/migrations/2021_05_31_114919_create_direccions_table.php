@@ -25,9 +25,7 @@ class CreateDireccionsTable extends Migration
             $table->string('entre2');
             $table->integer('codigo');
 
-            $table->unsignedBigInteger('Domicilio')->unique()->nullable();
-            $table->foreign('Domicilio')
-            ->references('id')->on('empleados')->onDelete('cascade')->onUpdate('cascade');
+           
 
 
 
