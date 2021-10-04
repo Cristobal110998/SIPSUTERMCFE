@@ -110,7 +110,6 @@
 <select name="Rol" class="form-control "id="Rol">
   <option selected value="{{ isset($empleado->Rol)?$empleado->Rol:old('Rol') }}">{{ isset($empleado->Rol)?$empleado->Rol:old('Rol') }}</option>
   <option value="Administrador">Administrador</option>
-  <option value="Jefe">Jefe</option>
   <option value="Usuario del sistema">Usuario del sistema</option>
   <option value="Empleado">Empleado</option>
 </select>

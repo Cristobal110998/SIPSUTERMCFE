@@ -34,37 +34,42 @@
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
-             <th>RPE</th>
+            <th>Id</th>
             <th>Contrato</th>
+            <th>RPE</th>
             <th>Seguro social(IMMS)</th>
             <th>Fecha de ingreso</th>
             <th>RFC</th>
+            <th>Rol</th>
             <th>Contacto de emergencia</th>
             <th>Telefono de emergencia</th>
             <th>Cursos que Participa</th>
+            <th>Acciones</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach($empleados as $empleado)
         <tr>
-            <td>{{ $empleado->RPE }}</td>
+            <td>{{ $empleado->id }}</td>
             <td>{{ $empleado->Contrato }}</td>
+            <td>{{ $empleado->RPE }}</td>
             <td>{{ $empleado->IMMS }}</td>
             <td>{{ $empleado->FechaIngreso }}</td>
             <td>{{ $empleado->RFC }}</td>
+            <td>{{ $empleado->Rol }}</td>
             <td>{{ $empleado->ContactoEmergencia }}</td>
             <td>{{ $empleado->TelefonoEmergencia }}</td>
             <td>{{ $empleado->CursosParticipaba }}</td>
             
             <td>
-            <!-- <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
+            <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
             Editar
             </a>
             <form action="{{ url('/empleado/'.$empleado->id) }}"  method="post" class="d-inline">
             @csrf
             {{ method_field('DELETE') }}
-            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar"> -->
+            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar">
             </form>
             </td>
         </tr>
@@ -77,7 +82,7 @@
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
-        <th>RPE</th>
+            <th>Id</th>
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
@@ -90,13 +95,14 @@
             <th>Hijos</th>
             <th>Papa</th>
             <th>Mama</th>
+            <th>Acciones</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach($empleados as $empleado)
         <tr>
-        <td>{{ $empleado->RPE }}</td>
+            <td>{{ $empleado->id }}</td>
             <td>{{ $empleado->Nombre }}</td>
             <td>{{ $empleado->ApellidoPaterno }}</td>
             <td>{{ $empleado->ApellidoMaterno }}</td>
@@ -111,13 +117,13 @@
             <td>{{ $empleado->Mama }}</td>
 
             <td>
-            <!-- <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
+            <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
             Editar
             </a>
             <form action="{{ url('/empleado/'.$empleado->id) }}"  method="post" class="d-inline">
             @csrf
             {{ method_field('DELETE') }}
-            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar"> -->
+            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar">
             </form>
             </td>
         </tr>
@@ -132,33 +138,34 @@
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
-        <th>RPE</th>
+            <th>Id</th>
             <th>Domicilio</th>
             <th>Telefono de Casa</th>
             <th>Telefono celular</th>
             <th>Fecha de nacimiento</th>
-            <th>Correo electrónico</th>
+            <th>Correo Electronico</th>
+            <th>Acciones</th>
         </tr>
     </thead>
 
     <tbody>
         @foreach($empleados as $empleado)
         <tr>
-        <td>{{ $empleado->RPE }}</td>
+            <td>{{ $empleado->id }}</td>
             <td>{{ $empleado->Domicilio }}</td>
             <td>{{ $empleado->TelefonoCasa }}</td>
             <td>{{ $empleado->TelefonoCelular }}</td>
             <td>{{ $empleado->FechaNacimiento}}</td>
             <td>{{ $empleado->CorreoElectronico }}</td>
 
-            <!-- <td>
+            <td>
             <a href="{{ url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning">
             Editar
             </a>
             <form action="{{ url('/empleado/'.$empleado->id) }}"  method="post" class="d-inline">
             @csrf
             {{ method_field('DELETE') }}
-            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar"> -->
+            <input type="submit" class="btn btn-danger" onclick="return confirm('¿Deseas borrar?')" value="Borrar">
             </form>
             </td>
         </tr>

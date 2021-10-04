@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>SIPSUTERMCFE</b>',
-    'logo_img' => '/vendor/adminlte/dist/img/cfe_logo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -241,22 +241,11 @@ return [
         ],
         [
             'text' => 'Inicio',
-            'url'  => '#',
+            'url'  => 'empleado',
             'icon' => 'fas fa-fw fa-home',
         ],
-        [
-            'text' => 'Administración',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-unlock',
-            'submenu' => [
-                [
-                    'text' => 'Capturar días',
-                    'url' => '#',
-                ],
-            ]
-        ],
    
-                /*[
+                [
                     'text' => 'Usuario',
                     'url'  => '#',
                     'icon' => 'fas fa-ligth fa-user',
@@ -279,11 +268,15 @@ return [
                             'icon' => 'fas fa-fw fa-lock',
                         ],
                     [
+                        'text' => 'Notificaciones',
+                        'url' => '#',
+                    ],
+                    [
                         'text' => 'Buzón de sugerencias',
                         'url' => '#',
                     ],
                 ],   
-            ],*/
+            ],
             [
                 'text' => 'Empleados',
                 'url'  => 'empleado',
@@ -297,81 +290,62 @@ return [
                     'text' => 'Baja',
                     'url' => 'empleado',
                 ],
-            ],   
-        ],
-        // [
-        //     'text' => 'Registro de asistencias',
-        //     'url'  => '#',
-        //     'icon' => 'fas fa-fw fa-check-circle',
-        //     'submenu' => [
-        //     [
-        //         'text' => 'Laboral',
-        //         'url' => '#',
-        //         'submenu' => [
-        //             [
-        //                 'text' => 'Presencial',
-        //                 'url' => '#',
-        //             ],
-        //             [
-        //                 'text' => 'Home Office',
-        //                 'url' => '#',
-        //             ],
-        //             [
-        //                 'text' => 'Faltas',
-        //                 'url' => '#',
-        //             ],
-        //         ],
-        //     ],
-        //     [
-        //         'text' => 'Eventos sindicales',
-        //         'url' => '#',
-        //         'submenu' => [
-        //             [
-        //                 'text' => 'Asistencias',
-        //                 'url' => '#',
-        //             ],
-        //             [
-        //                 'text' => 'Faltas',
-        //                 'url' => '#',
-        //             ],
-        //         ],
-        //     ],
-        // ],   
-        // ] ,
-        [
-            'text' => 'Servicios',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-check-circle',
-            'submenu' => [
-                  [
+                [
+                    'text' => 'Solicitudes',
+                    'url' => '#',
+                    'submenu' => [
+                        [
                             'text' => 'Vacaciones',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Solicitar vacaciones',
-                                    'url' => '#',
-                                ],
-                                [   
-                                    'text' => 'Consultar vacaciones',
-                                    'url' => 'evento',
-                                ],
-                                [
-                                    'text' => 'Imprimir formato',
-                                    'url' => '#',
-                                ],
-                            ],
+                            'url' => 'evento',
                         ],
                         [
                             'text' => 'Permisos',
                             'url' => '#',
                         ],
+                    ],
+                ],
+            ],   
+        ],
+        [
+            'text' => 'Registro de asistencias',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-check-circle',
+            'submenu' => [
             [
-                'text' => 'Buzón de sugerencias',
+                'text' => 'Laboral',
                 'url' => '#',
+                'submenu' => [
+                    [
+                        'text' => 'Presencial',
+                        'url' => '#',
+                    ],
+                    [
+                        'text' => 'Home Office',
+                        'url' => '#',
+                    ],
+                    [
+                        'text' => 'Faltas',
+                        'url' => '#',
+                    ],
+                ],
+            ],
+            [
+                'text' => 'Eventos sindicales',
+                'url' => '#',
+                'submenu' => [
+                    [
+                        'text' => 'Asistencias',
+                        'url' => '#',
+                    ],
+                    [
+                        'text' => 'Faltas',
+                        'url' => '#',
+                    ],
+                ],
             ],
         ],   
     ],
-   /* [
+    [
         'text' => 'Capacitacion',
         'url'  => 'capacitacion',
         'icon' => 'fas fa-fw fa-book',
@@ -389,16 +363,16 @@ return [
             'url' => '#',
         ],
     ],   
-],*/
+],
 [
-    'text' => 'Centros de trabajo',
+    'text' => 'Areas de trabajo',
     'url'  => '#', 
     'icon' => 'fas fa-fw fa-wrench',
 ],
-//[
-//    'text' => 'Calendario de eventos',
-//    'url'  => '#',
-//    'icon' => 'fas fa-fw fa-calendar',
+[
+    'text' => 'Calendario de eventos',
+    'url'  => '#',
+    'icon' => 'fas fa-fw fa-calendar',
 //     'submenu' => [
 //     [
 //         'text' => 'Asambleas',
@@ -417,7 +391,7 @@ return [
 //         'url' => '#',
 //     ],
 // ],   
-//],
+],
 // [
 //     'text' => 'Servicio Social',
 //     'url'  => '#',

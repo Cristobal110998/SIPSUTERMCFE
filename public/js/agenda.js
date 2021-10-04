@@ -1,8 +1,4 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-    var bandera = false;
-    document.getElementById("nombreCentro").innerHTML = "Centro de trabajo";
-
     let formulario = document.querySelector("#formularioEventos");
 
     var calendarEl = document.getElementById("agenda");
@@ -10,29 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
         initialView: "dayGridMonth",
         locale: "es",
         displayEventTime: TextTrackCueList,
-        selectable: true,
-        selectOverlap: false,
-        eventOverlap: false,
-     
 
         headerToolbar: {
             left: "prev,next prevYear,nextYear today",
             center: "title",
-            right: "listYear, dayGridMonth, dayGridWeek, timeGridDay",
-        },
-
-        //events: baseURL+"/evento/mostrar",
-        selectOverlap: function(event) {
-            console.log(event);
-            if(event.length != 0){
-                bandera = true;
-                $("#evento").modal("hide");
-                alert("No puedes registrar en una fecha ya ocupada");
-            }else{
-                //
-            }
+            right: "dayGridMonth, dayGridWeek, timeGridDay",
         },
         
+        //events: baseURL+"/evento/mostrar",
 
         eventSources: {
             url: baseURL + "/evento/mostrar",
@@ -42,34 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
 
-   
         dateClick: function (info) {
-            var fecha = info.dateStr;
-
-        
-            //calendar.gotoDate(fecha);
-
-
-
             formulario.reset();
             formulario.start.value = info.dateStr;
             formulario.end.value = info.dateStr;
 
-            
-            if(bandera == true){
-                $("#evento").modal("hide");
-                bandera = false;
-            }else{
-                $("#evento").modal("show");
-            }
-         
+            $("#evento").modal("show");
         },
 
         eventClick: function (info) {
             var evento = info.event;
-            
-           // console.log(evento.start); //Wed Sep 01 2021 00:00:00 GMT-0500 (hora de verano central)
-
+  
             axios
                 .post(baseURL + "/evento/editar/" + info.event.id)
                 .then((respuesta) => {
@@ -78,12 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     formulario.descripcion.value = respuesta.data.descripcion;
                     formulario.start.value = respuesta.data.start;
                     formulario.end.value = respuesta.data.end;
-                    if(bandera == true){
-                        $("#evento").modal("hide");
-                        bandera = false;
-                    }else{
-                        $("#evento").modal("show");
-                    }
+                    $("#evento").modal("show");
                 })
                 .catch((error) => {
                     if (error.response) {
@@ -93,18 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
     });
-    calendar.render();
 
-    
+    calendar.render();
     document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
-            var yaCreado = document.getElementById('title').value;
-            if(yaCreado.length == 0){
-                enviarDatos("/evento/agregar");
-            }else{
-                $("#evento").modal("hide");
-            }
+            enviarDatos("/evento/agregar");
         });
     document
         .getElementById("btnEliminar")
@@ -134,5 +87,4 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
     }
-
 });
