@@ -1,31 +1,13 @@
 
 @extends('layouts.app')
-
-<script>
-  alert("POR FAVOR, CAPTURA EL PERIODO DE VACACIONES QUE QUIERES REGISTRAR!");
-</script>
-
+@section('content')
 
 @extends('adminlte::page')
-
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-
 @section('title', 'SIPSUTERMCFE')
 
 
-
-@section('imports')
-import { Calendar } from 'fullcalendar/core';
-import dayGridPlugin from 'fullcalendar/daygrid';
-@endsection
-
-@section('content')
-
-
-
-
 <div class="container">
-  <h2 id="nombreCentro" class="fc-toolbar-title"></h2>
     <div id="agenda">
     </div>
 </div>

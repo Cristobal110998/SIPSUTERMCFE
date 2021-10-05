@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     var bandera = false;
-    document.getElementById("nombreCentro").innerHTML = "Centro de trabajo";
 
     let formulario = document.querySelector("#formularioEventos");
 
@@ -9,10 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
         locale: "es",
-        displayEventTime: TextTrackCueList,
+        displayEventTime: false,
         selectable: true,
         selectOverlap: false,
-        eventOverlap: false,
+        
      
 
         headerToolbar: {
@@ -42,13 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
 
+
+
    
         dateClick: function (info) {
-            var fecha = info.dateStr;
-
-        
-            //calendar.gotoDate(fecha);
-
+  
 
 
             formulario.reset();
@@ -67,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         eventClick: function (info) {
             var evento = info.event;
-            
+            console.log(evento);
            // console.log(evento.start); //Wed Sep 01 2021 00:00:00 GMT-0500 (hora de verano central)
 
             axios
@@ -85,26 +82,27 @@ document.addEventListener("DOMContentLoaded", function () {
                         $("#evento").modal("show");
                     }
                 })
-                .catch((error) => {
+                .catch(error => {
                     if (error.response) {
                         console.log(error.response.data);
                     }
-                });
+                })
         },
 
+
     });
+
+
+
+
     calendar.render();
 
     
     document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
-            var yaCreado = document.getElementById('title').value;
-            if(yaCreado.length == 0){
                 enviarDatos("/evento/agregar");
-            }else{
-                $("#evento").modal("hide");
-            }
+    
         });
     document
         .getElementById("btnEliminar")
