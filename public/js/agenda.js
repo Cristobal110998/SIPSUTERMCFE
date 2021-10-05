@@ -1,11 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+    var bandera = false;
+
+
     let formulario = document.querySelector("#formularioEventos");
 
     var calendarEl = document.getElementById("agenda");
     var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
         locale: "es",
-        displayEventTime: TextTrackCueList,
+
+        displayEventTime: false,
+        selectable: true,
+        selectOverlap: false,
+        
+     
 
         headerToolbar: {
             left: "prev,next prevYear,nextYear today",
@@ -23,7 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
 
+
+   
         dateClick: function (info) {
+  
+
+
+
             formulario.reset();
             formulario.start.value = info.dateStr;
             formulario.end.value = info.dateStr;
@@ -33,7 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         eventClick: function (info) {
             var evento = info.event;
-  
+           // console.log(evento.start); //Wed Sep 01 2021 00:00:00 GMT-0500 (hora de verano central)
+
             axios
                 .post(baseURL + "/evento/editar/" + info.event.id)
                 .then((respuesta) => {
@@ -44,20 +61,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     formulario.end.value = respuesta.data.end;
                     $("#evento").modal("show");
                 })
-                .catch((error) => {
+                .catch(error => {
                     if (error.response) {
                         console.log(error.response.data);
                     }
-                });
+                })
         },
 
+
     });
+
 
     calendar.render();
     document
         .getElementById("btnGuardar")
         .addEventListener("click", function () {
-            enviarDatos("/evento/agregar");
+                enviarDatos("/evento/agregar");
+    
         });
     document
         .getElementById("btnEliminar")

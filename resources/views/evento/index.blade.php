@@ -1,17 +1,11 @@
 
-
 @extends('layouts.app')
-<script>
-  alert("POR FAVOR, CAPTURA EL PERIODO DE VACACIONES QUE QUIERES REGISTRAR!");
-</script>
+
 @section('content')
 
 @extends('adminlte::page')
-
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-
 @section('title', 'SIPSUTERMCFE')
-
 
 
 
