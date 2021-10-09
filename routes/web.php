@@ -98,7 +98,9 @@ Route::post('login',function(){
     return redirect('login');
 });
 
+// Route::get('/evento',function (){
+// $posts = ['cris','omar','ernesto'];
+// return view ('evento/index',compact('posts'));
+// });
+
 Auth::routes();
-
-
-

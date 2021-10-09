@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('content')
 
@@ -6,6 +5,27 @@
 <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @section('title', 'SIPSUTERMCFE')
 
+@section('content_header')
+@foreach($eventos as $evento)
+$aux -> evento->start.date_parse($evento->start);
+use DateTime;
+
+
+
+  <table>
+  <tr>
+  <td>{{ $evento->title }}</td>
+  <td>{{ $evento->descripcion }}</td>
+  <td>{{ $evento->start}} </td>
+  <td>{{ $evento->end}}</td>
+  </tr>
+</table>
+  @endforeach
+
+@endsection
+
+
+    
 
 <div class="container">
     <div id="agenda">
@@ -74,6 +94,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 
