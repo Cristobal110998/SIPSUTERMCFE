@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartamentoJevesTable extends Migration
+class CreateCatRolesEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamento_jefes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id');
+        Schema::create('cat_roles_empleados', function (Blueprint $table) {
+            
             $table->timestamps();
         });
     }
@@ -27,6 +26,7 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento_jefes');
+        Schema::dropIfExists('cat_roles_empleados');
+
     }
 }
