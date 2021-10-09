@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatAgenciasTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCatAgenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_agencias', function (Blueprint $table) {
-            $table->id();
-            $table->string('id_agencia');
-            $table->text('descripcion');
-            $table->string('id_zona');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Nombre');
             $table->timestamps();
+
         });
     }
 
@@ -29,6 +28,6 @@ class CreateCatAgenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_agencias');
+        Schema::dropIfExists('roles');
     }
 }

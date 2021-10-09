@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartamentoJevesTable extends Migration
+class CreateDepartamentosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamento_jefes', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
+            $table->string('Nombre');
+            $table->text('Descripcion');
+            $table->string('Codigo');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateDepartamentoJevesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento_jefes');
+        Schema::dropIfExists('departamentos');
     }
 }
